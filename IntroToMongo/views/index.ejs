@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Form goes here</h1>
+    <form action="/users" method="post">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Age: <input type="number" name="age" min="0"></p>
+        <input type="submit" value="Create a user">
+    </form>
+    <%- JSON.stringify(messages) %>
+<% if(messages.registration) { %>
+     <% for (var x of messages.registration) { %>
+      <h3><%= x %></h3>
+     <% } %>
+ <% } %>
+    <hr>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <% for(let user of users) { %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.age %></td>
+            </tr>
+        <% } %>
+    </table>
+  </body>
+</html>
